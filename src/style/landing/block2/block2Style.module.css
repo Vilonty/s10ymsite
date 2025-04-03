@@ -1,0 +1,83 @@
+.block2{
+    display: flex;
+    flex-direction: row;
+    height: 676px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+
+}
+
+.block2left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    width: 50%;
+    height: 100%;
+    
+}
+
+.block2topimg{
+    display: flex;
+    justify-content: flex-start;
+    background-size: cover;
+    width: 100%;
+    height: 50%;
+    
+}
+
+
+.block2topimg img{
+    width: 50%;
+    height: 100%;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+}
+
+
+.block2right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.block2buttomimg{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+
+
+.block2buttomimg img{
+    width: 70%;
+    height: 100%;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.25);
+    
+}
+
+.info{
+    width: 70%;
+    height: 50%;
+    display: flex;
+    padding: 6%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.info span{
+    font-size: 14px;
+    line-height: 20px;
+    width: 100%;
+    color: #FFFFFF;
+    font-family: 'Press Start 2P', system-ui;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    margin-bottom: 1.5em;
+    font-weight: 200;
+}

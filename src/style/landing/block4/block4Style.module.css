@@ -1,0 +1,84 @@
+.block4{
+    margin-top: 0;
+    background-color: rgba(38,38,38,0.32);
+    height: 785px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.block4 span{
+    font-size: 25px;
+    color: #FFFFFF;
+    margin-top: 6%;
+    text-transform: uppercase;
+    font-family: 'Press Start 2P', system-ui;
+    text-align: center;
+}
+
+.block4middle{
+    margin-top: 10%;
+    width: 100%;
+    position: relative;
+}
+
+.block4button {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 370px;
+    width: 63%;
+    position: absolute;
+        background-color: #222222;
+        left: -15%; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    z-index: 1;
+    display: flex;
+    flex-direction: column; 
+}
+.block4buttoncontent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+
+}
+.block4button span{
+    margin-top: 12%;
+    width: 70%;
+    font-size: 20px;
+    font-family: 'JetBrains Mono';
+    text-transform: uppercase;
+
+}
+.block4button button{
+    
+    margin-top: 5%;
+    border: none;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+    background-color: #363636;
+    color: #FFFFFF;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono';
+    height: 60px;
+    width: 33%;
+}
+
+.block4middle img{
+    
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+    width: 423px;
+    height: 370px;
+    float: right;
+}
+.content-link {
+    text-decoration: none;
+    color: inherit;
+    display: block; 
+    height: 100%; 
+}

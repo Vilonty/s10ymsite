@@ -1,0 +1,218 @@
+body{
+    background-color: #252525;
+}
+a {
+    text-decoration: none; 
+    color: white; 
+}
+.press-start-2p-regular {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.mainProfil{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 850px;
+    background-image: url('../../assets/profil/backgrounds/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.mainblockProfil{
+    display: flex;
+    flex-direction: column;
+
+    margin-top:3%;
+
+    background-color: #252525;
+    border-radius: 5px;
+
+    height: 700px;
+    width: 77%;
+    
+}
+
+.mainblocktop{
+    display: flex;
+
+    height: 50%;
+    width: 100%;
+}
+
+.mainblocktop img{
+    height: 100%;
+    width: 30%;
+    background-size: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+
+}
+
+.mainblocktopinfo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+}
+
+.mainblocktopinfo span{
+
+    margin-top: 3%;
+    color: white;
+
+    text-transform: capitalize;
+    
+    font-family: 'Press Start 2P', system-ui;
+    font-size: 40px;
+}
+
+.bio{
+    display: flex;
+
+    margin-top: 4%;
+
+    border-radius: 10px;
+    height: 55%;
+    width: 65%;
+
+    padding: 20px 35px;
+
+
+    background-color: #363636;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+
+}
+
+.bio span{
+    margin-top: 0;
+    font-size: 25px;
+    text-transform: none;
+    font-family: 'JetBrains Mono';
+    text-align: center;
+}
+
+.mainblockbuttom{
+    height: 50%;
+    width: 100%;
+}
+
+.mainblockbuttom{
+    display: flex;
+}
+.stats{
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 25%;
+    height: 100%;
+
+}
+.statsblock{
+    
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+
+    height: 284px;
+    width: 70%;
+
+    border-radius: 10px;
+    
+    background-color: #363636;
+    color: white;
+    font-family: 'JetBrains Mono';
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+
+}
+
+.statsblock h2{
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 20px;
+    letter-spacing: 3px;
+    margin-top: 10%;
+    font-weight: normal ;
+}
+
+.statsblock dt{
+    text-align: center;
+    letter-spacing: 2px;
+    margin-top: 15%;
+}
+
+.statsblock dd{
+    text-align: center;
+    margin: 0;
+    letter-spacing: 2px;
+    margin-top: 3%;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
+    padding-top: 4%;
+}
+
+.form form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 20px;
+    font-family: 'JetBrains Mono';
+    font-weight: 200;
+}
+
+.form form span{
+    margin-top: 3%;
+}
+
+.custom-checkbox{
+    width: 20px;
+    height: 20px;
+}
+
+
+.form form button{
+    background-color: #363636;
+    margin-top: 5%;
+    height: 76px;
+    width: 25%;
+
+    color: white;
+    font-family: 'JetBrains Mono';
+    font-size: 20px;
+    font-weight: 200;
+
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+    
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.form form button:hover{
+    transform: translateY(-5px);
+}
+
+.form form button:active{
+    background-color: #424242;
+}

@@ -1,14 +1,16 @@
-import logo from './logo.svg';
-import { About } from './pages/about';
-import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import AppRoutes from './Routes';
+import React from 'react';
 
+import { BrowserRouter } from 'react-router-dom';
 function App() {
   return (
     <div>
-      <Routes>
-          <Route path="/" element={<About />} />
-      </Routes>
+
+
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    
     </div>
     
   );

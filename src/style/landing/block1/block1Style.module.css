@@ -1,0 +1,21 @@
+.mainblocklanding{
+    height: 950px;
+    width: 100%;
+
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+
+    background-image: url('../../../assets/landing/backgrounds/bgmaintop.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.mainblocklanding img{
+    width: 568px;
+    height: 156px;
+}

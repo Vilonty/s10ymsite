@@ -1,0 +1,23 @@
+body{
+    background-color: #252525;
+}
+
+.press-start-2p-regular {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+
+.blocklanding{
+    height: 100%;
+    width: 80%;
+    margin-left: 10%;
+    background-color: #252525;
+
+    background-image: url('../../../assets/landing/backgrounds/bgmain.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
