@@ -1,0 +1,126 @@
+body {
+    background-color: #252525;
+}
+a {
+    text-decoration: none; 
+    color: white; 
+}
+.press-start-2p-regular {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    height: 990px;
+    background-image: url('../assets/request/backgrounds/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.mainblock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    margin-top: 5%;
+    background-color: #2D2D2D;
+    width: 50%;
+
+    
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+}
+.title{
+    text-transform: uppercase;
+    color:white;
+    font-family: 'JetBrains Mono';
+    font-size: 20px;
+    text-align: center;
+    font-weight: 400;
+    margin-left: 25%;
+    margin-right: 25%;
+
+}
+.title2{
+    text-transform: uppercase;
+    color:white;
+    font-family: 'JetBrains Mono';
+    font-size: 20px;
+    text-align: center;
+    font-weight: 400;
+    margin-left: 15%;
+    margin-right: 15%;
+
+}
+
+h2 {
+    color: white;
+    font-family: "Press Start 2P", system-ui;
+    font-size: 35px;
+    text-transform: uppercase;
+    margin-top:6%;
+}
+span{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+}
+ul{
+    margin-left: 8%;
+    margin-top: 4%;
+}
+
+.rules-common{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.25);
+    box-shadow: inset 2px 2px rgba(0,0,0,0.2);
+
+    width: 100%;
+    background-color: #313131;
+    
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    text-transform: uppercase;
+    color:white;
+    font-family: 'JetBrains Mono';
+    font-size: 20px;
+}
+
+.rules-dark { background-color: #313131; }
+.rules-light { background-color: #404040; }
+
+.buttom-rules{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.25);
+    box-shadow: inset 2px 2px rgba(0,0,0,0.2);
+
+    width: 100%;    
+    
+    padding-top: 10px;
+    padding-bottom: 30px;
+
+    text-transform: uppercase;
+    text-align: center;
+    color:white;
+    font-family: 'JetBrains Mono';
+    font-size: 20px;
+}
+.buttom-rules ul {
+    list-style-type: none;
+
+    margin-top: 3%;          
+    padding: 0;         
+}
+
+.buttom-rules li {
+    margin: 0;           
+    padding: 0;       
+    text-align: left;   
+}

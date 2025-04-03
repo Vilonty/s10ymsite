@@ -1,0 +1,55 @@
+    .footer{
+        display: flex;
+        align-items: center;
+        background-color: #2D2D2D;
+        height: 226px;
+        width: 100%;
+        position: relative;
+    }
+    .footer img{
+        position: absolute; 
+        width: 207px;
+        height: 57px;
+        margin-left: 14%;
+        margin-top: 2%;
+
+    }
+
+    .footer nav{
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        flex-flow: column wrap;
+        position: relative;
+        margin: auto;
+        text-align: center;
+    }
+
+    .footer span{
+        font-family: 'JetBrains Mono', monospace;
+        color: #FFFFFF;
+        margin-top: 3%;
+        font-size: 18px;
+        text-transform: uppercase;
+        /*font-weight: bold;
+        transition: background-color 0.3s; */
+        letter-spacing: 1.8px;
+        
+    }
+
+    .footer nav img {
+        margin: 0px;
+        width: 4.6%;
+        height: 86px;
+    }
+
+    .footer nav .social-icons {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        flex-direction: row; 
+        gap: 5.5%; 
+        margin-top: 0.5%; /* Отступ от текста */
+        margin-left: -5%;
+    }
