@@ -192,11 +192,11 @@ a {
 }
 
 
-.form form button{
+.buttonOne{
     background-color: #363636;
-    margin-top: 5%;
+    margin-top: 10%;
     height: 76px;
-    width: 25%;
+    width: 120%;
 
     color: white;
     font-family: 'JetBrains Mono';
@@ -209,10 +209,18 @@ a {
     transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-.form form button:hover{
+.buttonOne:hover{
     transform: translateY(-5px);
 }
 
-.form form button:active{
+.buttonOne:active{
     background-color: #424242;
+}
+
+.buttonOne:disabled{
+    background-color: #5e5e5e;
+}
+
+.buttonOne:disabled:hover{
+    transform: none;
 }

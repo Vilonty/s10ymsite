@@ -16,9 +16,10 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 
     height: 900px;
-    background-image: url('../assets/request/backgrounds/bg.png');
+    background-image: url('../../../assets/request/backgrounds/bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -45,12 +46,17 @@ a {
 }
 
 h2{
-    margin-top: 4%;
+    margin-top: 7%;
     color: white;
     font-size: 30px;
     word-spacing:10px;
 }
-
+.textInput{
+    width: 100%;
+}
+.inputArea{
+    width: 100%;
+}
 .form{
     display: flex;
     flex-direction: column;
@@ -67,7 +73,7 @@ h2{
 
 .title{
     font-weight: 700;
-    margin-top: 4%;
+    margin-top: 2%;
     margin-left: 1%;
     width: 50%;
 
@@ -119,7 +125,6 @@ h2{
     
     width: 50%;
 
-    margin-bottom: 4%;
 }
 
 .expiriens textarea{
@@ -154,7 +159,7 @@ h2{
 }
 
 
-.custom-checkbox{
+.customCheckbox{
     width: 20px;
     height: 20px;
 }
@@ -176,7 +181,7 @@ h2{
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
     
     transition: transform 0.2s ease, background-color 0.3s ease;
-    margin-top: 3%;
+    margin-top: 1%;
 }
 
 .downButton:hover{
@@ -186,9 +191,23 @@ h2{
 .downButton:active{
     background-color: #424242;
 }
+.downButton:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+  }
+
+.downButton:disabled:hover {
+    transform: none;
+  } 
+
 
 .downSpan{
     margin-top: 4px;
     font-size: 15px;
     font-weight: 700;
+}
+
+span{
+    margin-top: 1%;
 }

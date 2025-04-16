@@ -9,7 +9,7 @@ export const Profil = (props)=>{
     
     return(
         <React.Fragment>
-            <Header showAuthLinks={false}/>
+            <Header showAuthLinks={false} profil={false}/>
                 <main class={styles.mainProfil}>
                     <div class={styles.mainblockProfil}>
                         <TopBLock />

@@ -9,7 +9,7 @@ export const Aboutpage = (props)=>{
     
     return(
         <React.Fragment>
-            <Header/>
+            <Header about={false}/>
             <main class={styles.mainabout}>
                     <div class={styles.mainblockabout}>
                         <h2>о сервере</h2>

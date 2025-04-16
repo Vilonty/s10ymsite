@@ -91,19 +91,31 @@ h2{
     
 }
 
+.buttondown{
+    margin-top: 3%;
+}
 
 
 .textInput button{
 
     color: white;
     background-color: transparent;
-    font-size: 15px;
+    font-size: 10px;
     font-family: 'JetBrains Mono';
     border: none;
     margin-top: 10px;
     
 }
 
+.downButton:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+  }
+
+.downButton:disabled:hover {
+    transform: none;
+  } 
 
 .textInput input{
     width: 100%;

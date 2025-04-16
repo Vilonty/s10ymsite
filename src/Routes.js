@@ -10,6 +10,7 @@ import {Register} from './pages/register';
 import {Authorization} from './pages/authorization';
 import {Blog} from './pages/blog';
 import {BlogPage} from './pages/blogpage';
+import {Request} from './pages/request';
 
 
 const AppRoutes = () => {
@@ -24,6 +25,7 @@ const AppRoutes = () => {
             <Route path="/authorization" element={<Authorization />}/>
             <Route path="/blog" element={<Blog />}/>
             <Route path="/blogpage" element={<BlogPage />}/>
+            <Route path="/request" element={<Request />}/>
         </Routes>
     );
 };

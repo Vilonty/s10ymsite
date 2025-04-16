@@ -22,7 +22,7 @@ export const Block5 =(props) => {
                 </Link>
         
 
-                <Link to="/Rules">
+                <Link to="/Blog">
                     <div class={styles.block5_content_block}>
                         <h2>блог</h2>
                         <span>сервер имеет блог</span>
