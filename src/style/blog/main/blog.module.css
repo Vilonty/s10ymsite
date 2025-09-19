@@ -59,10 +59,10 @@ h2{
     display: flex;
     flex-wrap: wrap;
     
-    justify-content: center; /* Добавлено */
+    justify-content: center; 
     width: 100%;
-    padding: 20px; /* Добавлено */
-    gap: 15px; /* Добавлено */
+    padding: 20px; 
+    gap: 15px; 
 }
 
 .contentBlock {
@@ -95,3 +95,4 @@ button{
     color: white;
 
 }
+

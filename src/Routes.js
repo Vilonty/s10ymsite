@@ -24,7 +24,8 @@ const AppRoutes = () => {
             <Route path="/register" element={<Register />}/>
             <Route path="/authorization" element={<Authorization />}/>
             <Route path="/blog" element={<Blog />}/>
-            <Route path="/blogpage" element={<BlogPage />}/>
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blogpage/:id" element={<BlogPage />} /> 
             <Route path="/request" element={<Request />}/>
         </Routes>
     );
