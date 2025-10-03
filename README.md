@@ -28,7 +28,7 @@ export const usePosts = (initialPage = 1, limit = 9) => {
   };
 
   // Добавление поста
-  const addPost = async (postData) => {
+  const addPost =3 async (postData) => {
     try {
       const newPost = await createPost(postData);
       setPosts(prev => [newPost, ...prev]);
