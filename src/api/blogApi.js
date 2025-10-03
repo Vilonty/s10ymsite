@@ -23,7 +23,8 @@ export const getPosts = async (page = 1, limit = 9) => {
   try {
     const response = await api.get(`${API_URL}?_page=${page}&_limit=${limit}`);
     return {
-      posts: response.data
+      posts: response.data,
+      totalCount: 100 
     };
   } catch (error) {
     handleError(error);

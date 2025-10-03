@@ -1,5 +1,124 @@
+
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { getPosts, createPost, deletePost } from '../api/blogApi';
+
+export const usePosts = (page = 1, limit = 9) => {
+    const queryClient = useQueryClient();
+
+
+    //Подгрузка постов
+
+    const { 
+      data, 
+      isLoading, 
+      error, 
+      isFetching 
+    } = useQuery({
+      queryKey: ['posts', { page, limit }],
+      queryFn: () => getPosts(page, limit),
+      keepPreviousData: true, 
+      staleTime: 1000 * 60 * 5, 
+
+
+      refetchInterval: 1000 * 30, 
+      refetchIntervalInBackground: true, 
+
+       retry: (failureCount, error) => {
+
+          return failureCount < 5;
+        },
+        retryDelay: 1000,
+
+    });
+
+
+    //Создание постов 
+
+    const createPostMutation = useMutation({
+      mutationFn: createPost,
+      onSuccess: (newPost) => {
+
+        queryClient.setQueryData(
+          ['posts', { page: 1, limit }], 
+          (oldData) => {
+            if (!oldData) return oldData;
+            return {
+              ...oldData,
+              posts: [newPost, ...oldData.posts]
+            };
+          }
+        );
+        queryClient.invalidateQueries({ queryKey: ['posts'] });
+      },
+    });
+
+
+  const deletePostMutation = useMutation({
+    mutationFn: deletePost,
+    
+    onMutate: async (deletedId) => {  
+      
+      const previousPosts = queryClient.getQueryData(['posts']);
+      queryClient.setQueryData(['posts'], (oldData) => {
+        if (!oldData?.posts) return oldData;
+        
+        return {
+          ...oldData,
+          posts: oldData.posts.filter(post => post.id !== deletedId)
+        };
+      });
+      
+      return { previousPosts };
+    },
+    
+    onError: (error, deletedId, context) => {
+      if (context?.previousPosts) {
+        queryClient.setQueryData(['posts'], context.previousPosts);
+      }
+      
+      alert(`Ошибка удаления: ${error.message}`);
+    },
+    
+    onSettled: () => {
+
+      queryClient.invalidateQueries({ queryKey: ['posts'] });
+    }
+  });
+
+
+    //Возвращение страницы
+
+    return {
+
+      posts: data?.posts || [],
+      loading: isLoading,
+      error: error?.message || '',
+      isFetching, 
+      
+
+      currentPage: page,
+      totalPages: Math.ceil(100 / limit),
+      
+
+      addPost: createPostMutation.mutate,
+      removePost: deletePostMutation.mutate,
+
+      isCreating: createPostMutation.isLoading,
+      isDeleting: deletePostMutation.isLoading,
+      createError: createPostMutation.error?.message,
+      deleteError: deletePostMutation.error?.message,
+    };
+  };
+
+
+
+
+{/*
+
+  БЫЛО:
+  
 import { useState, useEffect } from 'react';
-import { getPosts, createPost, deletePost } from '../api/blogApi'; // Добавляем импорт deletePost
+import { getPosts, createPost, deletePost } from '../api/blogApi'; 
 
 export const usePosts = (initialPage = 1, limit = 9) => {
   const [posts, setPosts] = useState([]);
@@ -35,7 +154,7 @@ export const usePosts = (initialPage = 1, limit = 9) => {
     }
   };
 
-  // УДАЛЕНИЕ ПОСТА - новая функция
+  // УДАЛЕНИЕ ПОСТА 
   const removePost = async (id) => {
     try {
       await deletePost(id); // Отправляем запрос на удаление на сервер
@@ -60,4 +179,4 @@ export const usePosts = (initialPage = 1, limit = 9) => {
     removePost, // Добавляем функцию удаления
     setCurrentPage
   };
-};
+};*/} 

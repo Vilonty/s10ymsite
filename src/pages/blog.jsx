@@ -9,9 +9,9 @@ import styles from '../style/blog/main/blog.module.css';
 import { Link } from 'react-router-dom';
 
 export const Blog = (props) => {
-  const { posts, loading, error, addPost, removePost } = usePosts(); // Добавляем removePost
+  const { posts, loading, error, addPost, removePost } = usePosts(); 
   const [showAddForm, setShowAddForm] = useState(false);
-  const [deletingId, setDeletingId] = useState(null); // Для отслеживания удаления
+  const [deletingId, setDeletingId] = useState(null); 
 
   // Обработчик добавления поста
   const handlePostAdded = (newPost) => {
@@ -37,7 +37,7 @@ export const Blog = (props) => {
     }
   };
 
-  // Показываем загрузку
+
   if (loading) {
     return (
       <React.Fragment>
@@ -48,7 +48,6 @@ export const Blog = (props) => {
     );
   }
 
-  // Показываем ошибку
   if (error) {
     return (
       <React.Fragment>

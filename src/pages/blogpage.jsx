@@ -1,38 +1,83 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Header } from '../components/header/header';
 import { Footer } from '../components/footer/footer';
 import { Loading } from '../components/blog/Loading';
 import { Error } from '../components/blog/Error';
-import { getPost } from '../api/blogApi'; 
 import styles from '../style/blogPage/main/blogpage.module.css';
-import Image from '../assets/blogpage/image.png';
+
+import { usePost } from '../hooks/usePost';
 
 export const BlogPage = (props) => {
   const { id } = useParams(); 
-  const [post, setPost] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const navigate = useNavigate();
+  
+  //хук
+  const { 
+    post, 
+    loading, 
+    error, 
+    updatePost, 
+    deletePost,
+    isUpdating,
+    isDeleting 
+  } = usePost(id);
 
-  // Загружаем пост при монтировании компонента
-  useEffect(() => {
-    loadPost();
-  }, [id]); // Загружаем снова если ID изменился
+  const [isEditing, setIsEditing] = useState(false);
+  const [editData, setEditData] = useState({ title: '', body: '' });
 
-  const loadPost = async () => {
-    try {
-      setLoading(true);
-      setError('');
-      const postData = await getPost(id);
-      setPost(postData);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
+  const handleEditToggle = () => {
+    if (post) {
+      setEditData({
+        title: post.title,
+        body: post.body
+      });
+    }
+    setIsEditing(!isEditing);
+  };
+
+  const handleEditChange = (e) => {
+    setEditData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  const handleSave = async () => {
+    if (!editData.title.trim() || !editData.body.trim()) {
+      alert('Заполните все поля');
+      return;
+    }
+
+    //Вызываем мутацию
+    updatePost(
+      { id, data: editData },
+      {
+        onSuccess: () => {
+          setIsEditing(false);
+          alert('Пост успешно обновлен!');
+        }
+      }
+    );
+  };
+
+  const handleCancelEdit = () => {
+    setIsEditing(false);
+  };
+
+  const handleDelete = async () => {
+    if (window.confirm('Вы уверены, что хотите удалить этот пост?')) {
+ 
+      deletePost(id, {
+        onSuccess: () => {
+          alert('Пост удален!');
+          navigate('/blog');
+        }
+      });
     }
   };
 
-  // Показываем загрузку
+
   if (loading) {
     return (
       <React.Fragment>
@@ -43,8 +88,7 @@ export const BlogPage = (props) => {
     );
   }
 
-  // Показываем ошибку
-  if (error) {
+  if (error && !post) {
     return (
       <React.Fragment>
         <Header showAuthLinks={true} blog={false}/>
@@ -53,9 +97,9 @@ export const BlogPage = (props) => {
       </React.Fragment>
     );
   }
-
-  // Если пост не найден
-  if (!post) {
+  {/*
+    хер пойми какая ошибка разберись позже!
+    if (!post) {
     return (
       <React.Fragment>
         <Header showAuthLinks={true} blog={false}/>
@@ -68,27 +112,98 @@ export const BlogPage = (props) => {
         <Footer />
       </React.Fragment>
     );
-  }
+    }*/}
+
 
   return (
     <React.Fragment>
       <Header showAuthLinks={true} blog={false}/>
       <main className={styles.mainBlogpage}>
         <div className={styles.mainblock}>
-          <h2>{post.title}</h2>
-          <hr />
           
-          <div className={styles.content}>
-            <div className={styles.textcontent}>
-              <p>{post.body}</p>
-              <div className={styles.postMeta}>
-                <span>ID поста: {post.id}</span>
-                <span>Автор: User {post.userId}</span>
+          {/* Кнопки управления */}
+          <div className={styles.postActions}>
+            <button 
+              onClick={handleEditToggle}
+              className={styles.editButton}
+              disabled={isUpdating || isDeleting}
+            >
+              {isEditing ? 'Отменить' : 'Редактировать'}
+            </button>
+            
+            <button 
+              onClick={handleDelete}
+              className={styles.deleteButton}
+              disabled={isDeleting}
+            >
+              {isDeleting ? 'Удаление...' : 'Удалить'}
+            </button>
+          </div>
+
+          {error && <div className={styles.error}>{error}</div>}
+
+          {isEditing ? (
+
+            <div className={styles.editForm}>
+              <div className={styles.formGroup}>
+                <label>Заголовок:</label>
+                <input
+                  type="text"
+                  name="title"
+                  value={editData.title}
+                  onChange={handleEditChange}
+                  disabled={isUpdating}
+                  className={styles.editInput}
+                />
+              </div>
+
+              <div className={styles.formGroup}>
+                <label>Содержание:</label>
+                <textarea
+                  name="body"
+                  value={editData.body}
+                  onChange={handleEditChange}
+                  disabled={isUpdating}
+                  rows="8"
+                  className={styles.editTextarea}
+                />
+              </div>
+
+              <div className={styles.editActions}>
+                <button 
+                  onClick={handleSave}
+                  disabled={isUpdating}
+                  className={styles.saveButton}
+                >
+                  {isUpdating ? 'Сохранение...' : 'Сохранить'}
+                </button>
+                
+                <button 
+                  onClick={handleCancelEdit}
+                  disabled={isUpdating}
+                  className={styles.cancelButton}
+                >
+                  Отмена
+                </button>
               </div>
             </div>
-            
-            <img src={Image} alt={post.title} />
-          </div>
+          ) : (
+      
+            <>
+              <h3 className={styles.h2Post}>{post.title}</h3>
+              <hr />
+              
+              <div className={styles.content}>
+                <div className={styles.textcontent}>
+                  <p>{post.body}</p>
+                  <div className={styles.postMeta}>
+                  </div>
+                </div>
+                
+                <img src={post.img} alt={post.title} className={styles.postImage} />
+              </div>
+            </>
+          )}
         </div>
       </main>
       <Footer />
