@@ -9,14 +9,28 @@ import styles from '../style/blog/main/blog.module.css';
 import { Link } from 'react-router-dom';
 
 export const Blog = (props) => {
-  const { posts, loading, error, addPost, removePost } = usePosts(); // Добавляем removePost
+  const { 
+    posts, 
+    loading, 
+    error, 
+    addPost, 
+    removePost, 
+    isCreating, 
+    isDeleting 
+  } = usePosts(); 
+  
   const [showAddForm, setShowAddForm] = useState(false);
-  const [deletingId, setDeletingId] = useState(null); // Для отслеживания удаления
+  const [deletingId, setDeletingId] = useState(null); 
 
   // Обработчик добавления поста
-  const handlePostAdded = (newPost) => {
-    console.log('Пост добавлен:', newPost);
-    setShowAddForm(false);
+  const handlePostAdded = async (newPost) => {
+    try {
+      await addPost(newPost); 
+      console.log('Пост добавлен');
+      setShowAddForm(false);
+    } catch (err) {
+      alert('Ошибка при добавлении: ' + err.message);
+    }
   };
 
   // Обработчик удаления поста
@@ -25,7 +39,7 @@ export const Blog = (props) => {
       return;
     }
 
-    setDeletingId(id); // Показываем индикатор загрузки
+    setDeletingId(id);
     
     try {
       await removePost(id);
@@ -33,11 +47,10 @@ export const Blog = (props) => {
     } catch (err) {
       alert('Ошибка при удалении: ' + err.message);
     } finally {
-      setDeletingId(null); // Убираем индикатор
+      setDeletingId(null);
     }
   };
 
-  // Показываем загрузку
   if (loading) {
     return (
       <React.Fragment>
@@ -48,7 +61,6 @@ export const Blog = (props) => {
     );
   }
 
-  // Показываем ошибку
   if (error) {
     return (
       <React.Fragment>
@@ -70,8 +82,10 @@ export const Blog = (props) => {
             <button 
               onClick={() => setShowAddForm(!showAddForm)}
               className={styles.addButton}
+              disabled={isCreating} 
             >
               {showAddForm ? '✕ Отменить' : '＋ Добавить пост'}
+              {isCreating && ' (Создание...)'}
             </button>
           </div>
 
@@ -80,6 +94,7 @@ export const Blog = (props) => {
             <AddPostForm
               onPostAdded={handlePostAdded}
               onCancel={() => setShowAddForm(false)}
+              isCreating={isCreating} 
             />
           )}
 
@@ -94,7 +109,7 @@ export const Blog = (props) => {
                 <div className={styles.postActions}>
                   <button
                     onClick={() => handleDeletePost(post.id)}
-                    disabled={deletingId === post.id}
+                    disabled={deletingId === post.id || isDeleting} 
                     className={styles.deleteButton}
                     title="Удалить пост"
                   >
@@ -105,7 +120,10 @@ export const Blog = (props) => {
             ))}
           </div>
           
-          <span><button>1</button> .. <button>n</button></span>
+          {/* Пагинация - можно добавить позже */}
+          <div className={styles.pagination}>
+            <span><button>1</button> .. <button>n</button></span>
+          </div>
         </div>
       </main>
       <Footer />

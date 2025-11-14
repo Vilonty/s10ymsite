@@ -46,10 +46,20 @@ a {
 }
 
 h2{
-    margin-top: 7%;
+    margin-top: 2%;
+    margin-left: 20%;
     color: white;
-    font-size: 100%;
-    word-spacing:10px;
+    font-size: 90%;
+    word-spacing:1%;
+    line-height: 1.2; 
+}
+
+h3 {
+    margin-left: 0;
+    color: white;
+    font-size: 25px;
+    word-spacing:1%;
+    line-height: 1.2; 
 }
 .textInput{
     width: 100%;

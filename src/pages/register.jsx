@@ -12,9 +12,35 @@ export const Register = (props)=>{
 
     const { register, handleSubmit, watch, formState: { errors, isValid } } = useForm({mode: 'onChange',});
     const password = watch('password');
-    const onSubmit = (data) => {
-        console.log('Form data:', data);
-      };
+
+    const onSubmit = async (data) => {
+        try {
+            console.log('Отправляемые данные:', data);
+            const response = await fetch('http://localhost:3001/register', {
+                method: 'POST',  
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: data.name,
+                    email: data.email,
+                    password: data.password
+                })
+            });
+            const result = await response.json();
+            console.log('Ответ от сервера:', result);
+
+            if (result.success) {
+                alert('Регистрация успешна!');
+            } else {
+                alert('Ошибка: ' + result.message);
+            }
+        } catch (error) {
+            console.error('Ошибка при отправке:', error);
+            alert('Ошибка подключения к серверу');
+        }
+    };
+
     
     return(
         <React.Fragment>
