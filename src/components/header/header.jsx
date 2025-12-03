@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../AuthContext';
 import { useQueryClient } from '@tanstack/react-query';
 import { getPosts } from '../../api/blogApi';
@@ -19,6 +19,8 @@ export const Header = ({ showAuthLinks = true, account = true,profil = true, reg
     });
   };
 
+  const location = useLocation()
+console.log('location', location)
     return (
         <div className="header">
             <Link to="/">
