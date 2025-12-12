@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'; 
 import { useCallback, useEffect } from 'react';
-import { fetchPosts, createPostThunk, deletePostThunk, setCurrentPage, clearError } from '../../store/PostsSlice';
+import { fetchPosts, createPostThunk, deletePostThunk, setCurrentPage, clearError } from '../store/PostsSlice';
 
 export const usePosts = (page = 1, limit = 9) => {
   const dispatch = useDispatch();

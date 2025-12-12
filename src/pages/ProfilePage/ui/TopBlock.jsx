@@ -1,10 +1,10 @@
 
-import { useProfile } from '../../../features/profile/model/hooks/useProfile';
+import { useProfile } from '../../../entities/user/hooks/useProfile';
 import { QueryError } from '../../../shared/ui/Error/QueryError';
 
 import styles from '../../../shared/style/profil/profil.module.css';
 
-export const TopBLock = (props) => {
+export const TopBLock = () => {
   const { profile, loading, error, refetch } = useProfile();
 
   if (loading) return <div className={styles.mainblocktop}>Загрузка профиля...</div>;
@@ -15,7 +15,7 @@ export const TopBLock = (props) => {
         onRetry={refetch}
       />
     );
-  };
+  }
 
   return (
     <div className={styles.mainblocktop}>

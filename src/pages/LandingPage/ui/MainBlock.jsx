@@ -1,16 +1,16 @@
 import HLogo from '../../../shared/assets/HeaderLogo/S10YM.png';
 import styles from '../../../shared/style/landing/block1/block1Style.module.css';
 
-export const MainBlock =(props) => {
-    return(
+export const MainBlock =() => {
+  return(
 
-        <div className={styles.mainblocklanding}>
+    <div className={styles.mainblocklanding}>
 
-            <img src={HLogo}/>
+      <img src={HLogo}/>
                 
-        </div>
+    </div>
 
-    )
+  );
     
 
 };

@@ -42,7 +42,7 @@ export const fetchPosts = createAsyncThunk(
   async ({page,limit}, {rejectWithValue}) =>{
     try{
       const response = await getPosts(page, limit);
-      return response
+      return response;
     } catch (error) {
       return rejectWithValue(error.message);
     }

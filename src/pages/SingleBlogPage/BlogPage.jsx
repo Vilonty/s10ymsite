@@ -5,9 +5,9 @@ import { Loading } from '../../features/blog/ui/Loading/Loading';
 import { Error } from '../../features/blog/ui/QueryError/QueryError';
 import styles from '../../shared/style/blogPage/main/blogpage.module.css';
 
-import { usePost } from '../../features/blog/model/hooks/UsePost';
+import { usePost } from '../../entities/post/hooks/usePost';
 
-export const BlogPage = (props) => {
+export const BlogPage = () => {
   const { id } = useParams(); 
   const navigate = useNavigate();
   

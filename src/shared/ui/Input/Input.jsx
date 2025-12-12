@@ -1,7 +1,7 @@
 import styles from '../../../shared/style/request/main/request.module.css';
 
-export const TextInput = ({
-
+export const Inputs = ({
+  type='text',
   register,
   name,
   validation,
@@ -9,20 +9,15 @@ export const TextInput = ({
   placeholder = ''
 }) => {
   return(
-
-    <div className={styles.inputArea}>
-
-      <textarea 
-            
+    <div className={styles.textInput}>
+      <input
+        type={type}
         placeholder={placeholder}
-        {...register(name,validation)}
-
-            
+        {...register(name, validation)}  
       />
       {errors && errors[name] && (
         <span className={styles.error}>{errors[name].message}</span>
       )}
     </div>
-
   );
 };

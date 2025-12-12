@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import { Loading } from '../../features/blog/ui/Loading/Loading';
 import { Error } from '../../features/blog/ui/QueryError/QueryError';
 import { AddPostForm } from '../../features/blog/ui/AddPostForm/AddPostForm';
-import { usePosts } from '../../features/blog/model/hooks/UsePosts';
+import { usePosts } from '../../entities/post/hooks/usePosts';
 import styles from '../../shared/style/blog/main/blog.module.css';
 import { Link } from 'react-router-dom';
 
-export const Blog = (props) => {
+export const Blog = () => {
   const { 
     posts, 
     loading, 

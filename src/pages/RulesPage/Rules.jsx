@@ -11,27 +11,27 @@ import {Rules8} from './ui/Rules8';
 import {RulesButtom} from './ui/BottomRules';
 import styles from '../../shared/style/rules/main/rules.module.css';
 
-export const Rules = (props)=>{
+export const Rules = ()=>{
     
-    return(
-        <React.Fragment>
-            <main class={styles.mainrules}>
-                <div class={styles.mainblock}>
-                    <h2>правила</h2>
+  return(
+    <React.Fragment>
+      <main className={styles.mainrules}>
+        <div className={styles.mainblock}>
+          <h2>правила</h2>
 
-                    <Rules1 />
-                    <Rules2 />
-                    <Rules3 />
-                    <Rules4 />
-                    <Rules5 />
-                    <Rules6 />
-                    <Rules7 />
-                    <Rules8 />
-                    <RulesButtom />
+          <Rules1 />
+          <Rules2 />
+          <Rules3 />
+          <Rules4 />
+          <Rules5 />
+          <Rules6 />
+          <Rules7 />
+          <Rules8 />
+          <RulesButtom />
                                 
-                </div>
+        </div>
 
-            </main>
-        </React.Fragment>
-    )
-}
+      </main>
+    </React.Fragment>
+  );
+};

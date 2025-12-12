@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createPost } from '../../api/BlogApi';
+import { createPost } from '../../../../entities/post/api/BlogApi';
 import styles from '../../../../shared/style/blog/components/addPostForm.module.css';
 
 export const AddPostForm = ({ onPostAdded, onCancel }) => {

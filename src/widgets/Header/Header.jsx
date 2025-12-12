@@ -2,16 +2,16 @@ import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../app/providers/AuthContext';
 import { useQueryClient } from '@tanstack/react-query';
-import { getPosts } from '../../features/blog/api/BlogApi';
+import { getPosts } from '../../entities/post/api/BlogApi';
 import HLogo from '../../shared/assets/HeaderLogo/S10YM.png';
 import '../../shared/style/header/header.css';
 
 export const Header = ({ showAuthLinks = true, account = true,profil = true, register = true, blog = true, about=true }) => {
 
-    const queryClient = useQueryClient();
-    const { isAuthenticated, logout } = useContext(AuthContext); 
+  const queryClient = useQueryClient();
+  const { isAuthenticated, logout } = useContext(AuthContext); 
 
-    const handleBlogHover = () => {
+  const handleBlogHover = () => {
     queryClient.prefetchQuery({
       queryKey: ['posts', { page: 1, limit: 9 }],
       queryFn: () => getPosts(1, 9),
@@ -19,39 +19,39 @@ export const Header = ({ showAuthLinks = true, account = true,profil = true, reg
     });
   };
 
-  const location = useLocation()
-console.log('location', location)
-    return (
-        <div className="header">
-            <Link to="/">
-                <img src={HLogo} alt="Логотип" />
-            </Link>
+  const location = useLocation();
+  console.log('location', location);
+  return (
+    <div className="header">
+      <Link to="/">
+        <img src={HLogo} alt="Логотип" />
+      </Link>
             
-            <nav>
-                {about && <Link to="/About">О сервере</Link>}
-                {blog && (
-                    <Link 
-                        to="/Blog" 
-                        onMouseEnter={handleBlogHover} // ← ПРАВИЛЬНО!
-                    >
+      <nav>
+        {about && <Link to="/About">О сервере</Link>}
+        {blog && (
+          <Link 
+            to="/Blog" 
+            onMouseEnter={handleBlogHover} // ← ПРАВИЛЬНО!
+          >
                         Блог
-                    </Link>
-                )}
+          </Link>
+        )}
                 
-                {!isAuthenticated && showAuthLinks && (
-                    <>
-                        {register && <Link to="/Register">Регистрация</Link>}
-                        {account && <Link to="/Authorization">Авторизация</Link>}
-                    </>
-                )}
+        {!isAuthenticated && showAuthLinks && (
+          <>
+            {register && <Link to="/Register">Регистрация</Link>}
+            {account && <Link to="/Authorization">Авторизация</Link>}
+          </>
+        )}
 
-                {isAuthenticated && (
-                    <>
-                        {profil && <Link to="/Profil">Личный кабинет</Link>} 
-                        <button onClick={logout}>Выйти</button> 
-                    </>
-                )}
-            </nav>
-        </div>
-    );
+        {isAuthenticated && (
+          <>
+            {profil && <Link to="/Profil">Личный кабинет</Link>} 
+            <button onClick={logout}>Выйти</button> 
+          </>
+        )}
+      </nav>
+    </div>
+  );
 };
