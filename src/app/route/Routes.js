@@ -15,16 +15,16 @@ import { Request } from '../../pages/RequestPage/Request';
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Landing/>}/>
-      <Route path="/about" element={<Aboutpage/>}/>
-      <Route path="/rules" element={<Rules/>}/>
-      <Route path="/profil" element={<Profil/>}/>
-      <Route path="/important" element={<Important/>}/>
-      <Route path="/register" element={<Register />}/>
-      <Route path="/authorization" element={<Authorization />}/>
-      <Route path="/blog" element={<Blog />}/>
-      <Route path="/blogpage/:id" element={<BlogPage />} /> 
-      <Route path="/request" element={<Request />}/>
+      <Route path='/' element={<Landing/>}/>
+      <Route path='/about' element={<Aboutpage/>}/>
+      <Route path='/rules' element={<Rules/>}/>
+      <Route path='/profil' element={<Profil/>}/>
+      <Route path='/important' element={<Important/>}/>
+      <Route path='/register' element={<Register />}/>
+      <Route path='/authorization' element={<Authorization />}/>
+      <Route path='/blog' element={<Blog />}/>
+      <Route path='/blogpage/:id' element={<BlogPage />} /> 
+      <Route path='/request' element={<Request />}/>
     </Routes>
   );
 };

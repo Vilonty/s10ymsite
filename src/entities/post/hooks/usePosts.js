@@ -12,7 +12,7 @@ export const usePosts = (page = 1, limit = 9) => {
     isCreating, 
     isDeleting, 
     currentPage, 
-    totalPages 
+    totalPages, 
   } = useSelector(state => state.posts);
 
   useEffect(() => {
@@ -48,6 +48,6 @@ export const usePosts = (page = 1, limit = 9) => {
     addPost,
     removePost,
     changePage,
-    clearError: clearPostsError
+    clearError: clearPostsError,
   };
 };

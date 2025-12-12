@@ -1,44 +1,31 @@
-body {
-    background-color: #252525;
-}
-a {
-    text-decoration: none; 
-    color: white; 
-}
-.press-start-2p-regular {
-    font-family: "Press Start 2P", system-ui;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.mainBlogpage {
+.blogPageContainer {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 900px; /* Изменил height на min-height */
+    min-height: 900px;
     background-color: #252525;
     background-image: url('../../../assets/request/backgrounds/bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 20px 0; /* Добавил отступы */
+    padding: 20px 0;
 }
-hr {
+
+.pageSeparator {
     width: 90%;
 }
 
-.mainblock {
+.postContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
     margin-top: 2%;
     background-color: #2D2D2D;
     height: 700px;
     width: 50%;
 }
 
-h2 {
+.postTitle {
     margin-top: 3%;
     margin-bottom: 2%;
     color: white;
@@ -48,7 +35,7 @@ h2 {
     letter-spacing: 2px;
 }
 
-.content{
+.postContent {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,142 +47,143 @@ h2 {
     font-size: 25px;
     font-family: 'JetBrains Mono';
 }
-.textcontent{
+
+.textContent {
     width: 100%;
     height: 30%;
 }
 
-.content img{
+.postImage {
     height: 208px;
     width: 40%;
 }
-.postActions {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 20px;
-  justify-content: flex-end;
+
+.postActionsContainer {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    justify-content: flex-end;
 }
 
-.editButton {
-  padding: 10px 20px;
-  background: #ffc107;
-  color: #000;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.2s;
+.postEditButton {
+    padding: 10px 20px;
+    background: #ffc107;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
 }
 
-.editButton:hover {
-  background: #e0a800;
+.postEditButton:hover {
+    background: #e0a800;
 }
 
-.deleteButton {
-  padding: 10px 20px;
-  background: #dc3545;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.2s;
+.postDeleteButton {
+    padding: 10px 20px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
 }
 
-.deleteButton:hover {
-  background: #c82333;
+.postDeleteButton:hover {
+    background: #c82333;
 }
 
-/* Форма редактирования */
-.editForm {
-  background: #f8f9fa;
-  padding: 25px;
-  border-radius: 10px;
-  border: 1px solid #e9ecef;
+.editFormContainer {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
 }
 
-.formGroup {
-  margin-bottom: 20px;
+.formGroupContainer {
+    margin-bottom: 20px;
 }
 
-.formGroup label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #2c3e50;
+.formLabel {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2c3e50;
 }
 
-.editInput {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ced4da;
-  border-radius: 6px;
-  font-size: 16px;
-  box-sizing: border-box;
+.formInput {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
 }
 
-.editTextarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ced4da;
-  border-radius: 6px;
-  font-size: 16px;
-  resize: vertical;
-  min-height: 200px;
-  box-sizing: border-box;
+.formTextarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 16px;
+    resize: vertical;
+    min-height: 200px;
+    box-sizing: border-box;
 }
 
-.editInput:focus,
-.editTextarea:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+.formInput:focus,
+.formTextarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
 }
 
-.editActions {
-  display: flex;
-  gap: 15px;
-  justify-content: flex-end;
+.formActionsContainer {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
 }
 
-.saveButton {
-  padding: 12px 25px;
-  background: #28a745;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
+.formSaveButton {
+    padding: 12px 25px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-.saveButton:hover:not(:disabled) {
-  background: #218838;
+.formSaveButton:hover:not(:disabled) {
+    background: #218838;
 }
 
-.saveButton:disabled {
-  background: #6c757d;
-  cursor: not-allowed;
+.formSaveButton:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
 }
 
-.cancelButton {
-  padding: 12px 25px;
-  background: #6c757d;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
+.formCancelButton {
+    padding: 12px 25px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-.cancelButton:hover {
-  background: #5a6268;
+.formCancelButton:hover {
+    background: #5a6268;
 }
 
-.error {
-  background: #f8d7da;
-  color: #721c24;
-  padding: 12px;
-  border-radius: 6px;
-  margin-bottom: 20px;
-  border: 1px solid #f5c6cb;
+.errorMessage {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
 }

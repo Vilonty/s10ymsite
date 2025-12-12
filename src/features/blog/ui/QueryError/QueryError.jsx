@@ -6,7 +6,7 @@ export const Error = ({ message }) => {
       textAlign: 'center', 
       padding: '50px', 
       color: 'red',
-      fontSize: '18px'
+      fontSize: '18px',
     }}>
       Ошибка: {message}
     </div>

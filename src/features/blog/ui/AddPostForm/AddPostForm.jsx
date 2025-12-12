@@ -5,7 +5,7 @@ import styles from '../../../../shared/style/blog/components/addPostForm.module.
 export const AddPostForm = ({ onPostAdded, onCancel }) => {
   const [formData, setFormData] = useState({
     title: '',
-    body: ''
+    body: '',
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -34,7 +34,7 @@ export const AddPostForm = ({ onPostAdded, onCancel }) => {
   const handleChange = (e) => {
     setFormData(prev => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
 
     if (error) setError('');
@@ -48,34 +48,34 @@ export const AddPostForm = ({ onPostAdded, onCancel }) => {
 
       <form onSubmit={handleSubmit}>
         <div className={styles.formGroup}>
-          <label htmlFor="title">Заголовок:</label>
+          <label htmlFor='title'>Заголовок:</label>
           <input
-            type="text"
-            id="title"
-            name="title"
+            type='text'
+            id='title'
+            name='title'
             value={formData.title}
             onChange={handleChange}
             disabled={loading}
-            placeholder="Введите заголовок поста"
+            placeholder='Введите заголовок поста'
           />
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor="body">Содержание:</label>
+          <label htmlFor='body'>Содержание:</label>
           <textarea
-            id="body"
-            name="body"
+            id='body'
+            name='body'
             value={formData.body}
             onChange={handleChange}
             disabled={loading}
-            rows="6"
-            placeholder="Введите текст поста"
+            rows='6'
+            placeholder='Введите текст поста'
           />
         </div>
 
         <div className={styles.formActions}>
           <button 
-            type="submit" 
+            type='submit' 
             disabled={loading}
             className={styles.submitButton}
           >
@@ -83,7 +83,7 @@ export const AddPostForm = ({ onPostAdded, onCancel }) => {
           </button>
           
           <button 
-            type="button" 
+            type='button' 
             onClick={onCancel}
             disabled={loading}
             className={styles.cancelButton}

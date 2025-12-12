@@ -1,29 +1,24 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-
 import { Inputs } from '../../shared/ui/Input/Input.jsx';
 import { Checkbox } from '../../shared/ui/Checkbox/Checkbox.jsx';
-
 import styles from '../../shared/style/register/main/register.module.css';
 
-export const Register = ()=>{
-
-  const { register, handleSubmit, watch, formState: { errors, isValid } } = useForm({mode: 'onChange',});
+export const Register = () => {
+  const { register, handleSubmit, watch, formState: { errors, isValid } } = useForm({ mode: 'onChange' });
   const password = watch('password');
 
   const onSubmit = async (data) => {
     try {
       console.log('Отправляемые данные:', data);
       const response = await fetch('http://localhost:3001/register', {
-        method: 'POST',  
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: data.name,
           email: data.email,
-          password: data.password
-        })
+          password: data.password,
+        }),
       });
       const result = await response.json();
       console.log('Ответ от сервера:', result);
@@ -39,103 +34,73 @@ export const Register = ()=>{
     }
   };
 
-    
-  return(
+  return (
     <React.Fragment>
       <main className={styles.registerMain}>
-        <div className={styles.mainblockRegister}>
-
-          <h2>регистрация</h2>
-                        
-
-          <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-                            
-            <div className={styles.title}>email</div>
-
+        <div className={styles.registerContainer}>
+          <h2 className={styles.registerTitle}>регистрация</h2>
+          <form className={styles.registerForm} onSubmit={handleSubmit(onSubmit)}>
+            <div className={styles.formLabel}>email</div>
             <Inputs
-              type="email"
+              type='email'
               register={register}
-              name="email"
-              validation={{
-                required: 'Email обязателен'
-                                
-              }}
+              name='email'
+              validation={{ required: 'Email обязателен' }}
               errors={errors}
             />
-
-            <div className={styles.title}>имя</div>
+            <div className={styles.formLabel}>имя</div>
             <Inputs
               register={register}
-              name="name"
+              name='name'
               validation={{
                 required: 'Имя обязательно',
-                minLength: {
-                  value: 3,
-                  message: 'Минимум 3 символов'
-                },
-                maxLength: {
-                  value: 16,
-                  message: 'Максимум 16 символов'
-                }
+                minLength: { value: 3, message: 'Минимум 3 символов' },
+                maxLength: { value: 16, message: 'Максимум 16 символов' },
               }}
               errors={errors}
             />
-
-            <div className={styles.title}>пароль</div>
-            <Inputs
-              type="password"
-              register={register}
-              name="password"
-              validation={{
-                required: 'Пароль обязателен',
-                minLength: {
-                  value: 3,
-                  message: 'Минимум 3 символов'
-                },
-                maxLength: {
-                  value: 16,
-                  message: 'Максимум 16 символов'
-                }
-              }}
-              errors={errors}
-            />
-
-            <div className={styles.title}>повтор пароля</div>
-
+            <div className={styles.formLabel}>пароль</div>
             <Inputs
               type='password'
               register={register}
-              name="passwordconfirm"
+              name='password'
               validation={{
-                required: 'Подтвердите пароль',
-                validate: value => value === password || 'Пароли не совпадают'
+                required: 'Пароль обязателен',
+                minLength: { value: 3, message: 'Минимум 3 символов' },
+                maxLength: { value: 16, message: 'Максимум 16 символов' },
               }}
               errors={errors}
             />
-
-            <span className={styles.checkboxLabel}>
+            <div className={styles.formLabel}>повтор пароля</div>
+            <Inputs
+              type='password'
+              register={register}
+              name='passwordconfirm'
+              validation={{
+                required: 'Подтвердите пароль',
+                validate: value => value === password || 'Пароли не совпадают',
+              }}
+              errors={errors}
+            />
+            <span className={styles.checkboxContainer}>
               <Checkbox
-                type="checkbox"
+                type='checkbox'
                 register={register}
-                name="privacyPolicy" 
+                name='privacyPolicy'
                 validation={{ required: 'Необходимо согласиться с политикой' }}
                 errors={errors}
-                className={styles.customCheckbox}
+                className={styles.checkboxInput}
               />
-                            
-                                Согласие на обработку <a href="#">персональных данных</a>
+              <a href='#' className={styles.privacyLink}>Согласие на обработку персональных данных</a>
             </span>
             {errors.privacyPolicy && (
-              <span className={styles.errordown}>{errors.privacyPolicy.message}</span>
+              <span className={styles.errorText}>{errors.privacyPolicy.message}</span>
             )}
-            <button className={styles.downButton} disabled={!isValid}>Зарегистрироваться</button>
-
+            <button className={styles.submitButton} disabled={!isValid}>
+              Зарегистрироваться
+            </button>
           </form>
-
-                                              
-
         </div>
-
       </main>
     </React.Fragment>
   );

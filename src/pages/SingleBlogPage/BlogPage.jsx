@@ -11,7 +11,6 @@ export const BlogPage = () => {
   const { id } = useParams(); 
   const navigate = useNavigate();
   
-  // Redux хук
   const { 
     post, 
     loading, 
@@ -20,7 +19,7 @@ export const BlogPage = () => {
     deletePost,
     isUpdating,
     isDeleting,
-    clearError
+    clearError,
   } = usePost(id);
 
   const [isEditing, setIsEditing] = useState(false);
@@ -33,28 +32,25 @@ export const BlogPage = () => {
     console.log('Ошибка:', error);
   }, [id, post, loading, error]);
 
-  // Сбрасываем состояние редактирования при смене поста
   useEffect(() => {
     setIsEditing(false);
     setEditData({ title: '', body: '' });
   }, [id]);
 
-  // Заполняем форму данными поста при входе в режим редактирования
   const handleEditToggle = () => {
     if (post && !isEditing) {
       setEditData({
         title: post.title,
-        body: post.body
+        body: post.body,
       });
     }
     setIsEditing(!isEditing);
   };
 
-  // Ручное изменение поста
   const handleEditChange = (e) => {
     setEditData(prev => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -84,14 +80,12 @@ export const BlogPage = () => {
     }
   };
 
-  // Редирект после удаления поста
   useEffect(() => {
     if (!post && !loading && !error && id) {
       navigate('/blog');
     }
   }, [post, loading, error, id, navigate]);
 
-  // УСИЛИМ ПРОВЕРКИ ДЛЯ ЗАГРУЗКИ
   const showLoading = loading && !post;
   const showError = error && !post;
   const showNotFound = !post && !loading;
@@ -118,8 +112,8 @@ export const BlogPage = () => {
     console.log('Показываем "не найден"...');
     return (
       <React.Fragment>
-        <main className={styles.mainBlogpage}>
-          <div className={styles.mainblock}>
+        <main className={styles.blogPageContainer}>
+          <div className={styles.postContainer}>
             <h2>Пост не найден</h2>
             <p>Запрошенный пост не существует.</p>
           </div>
@@ -132,14 +126,13 @@ export const BlogPage = () => {
 
   return (
     <React.Fragment>
-      <main className={styles.mainBlogpage}>
-        <div className={styles.mainblock}>
+      <main className={styles.blogPageContainer}>
+        <div className={styles.postContainer}>
           
-          {/* Кнопки управления */}
-          <div className={styles.postActions}>
+          <div className={styles.postActionsContainer}>
             <button 
               onClick={handleEditToggle}
-              className={styles.editButton}
+              className={styles.postEditButton}
               disabled={isUpdating || isDeleting}
             >
               {isEditing ? 'Отменить' : 'Редактировать'}
@@ -147,7 +140,7 @@ export const BlogPage = () => {
             
             <button 
               onClick={handleDelete}
-              className={styles.deleteButton}
+              className={styles.postDeleteButton}
               disabled={isDeleting}
             >
               {isDeleting ? 'Удаление...' : 'Удалить'}
@@ -155,7 +148,7 @@ export const BlogPage = () => {
           </div>
 
           {error && (
-            <div className={styles.error}>
+            <div className={styles.errorMessage}>
               {error}
               <button onClick={clearError} className={styles.clearErrorBtn}>
                 ×
@@ -164,36 +157,36 @@ export const BlogPage = () => {
           )}
 
           {isEditing ? (
-            <div className={styles.editForm}>
-              <div className={styles.formGroup}>
-                <label>Заголовок:</label>
+            <div className={styles.editFormContainer}>
+              <div className={styles.formGroupContainer}>
+                <label className={styles.formLabel}>Заголовок:</label>
                 <input
-                  type="text"
-                  name="title"
+                  type='text'
+                  name='title'
                   value={editData.title}
                   onChange={handleEditChange}
                   disabled={isUpdating}
-                  className={styles.editInput}
+                  className={styles.formInput}
                 />
               </div>
 
-              <div className={styles.formGroup}>
-                <label>Содержание:</label>
+              <div className={styles.formGroupContainer}>
+                <label className={styles.formLabel}>Содержание:</label>
                 <textarea
-                  name="body"
+                  name='body'
                   value={editData.body}
                   onChange={handleEditChange}
                   disabled={isUpdating}
-                  rows="8"
-                  className={styles.editTextarea}
+                  rows='8'
+                  className={styles.formTextarea}
                 />
               </div>
 
-              <div className={styles.editActions}>
+              <div className={styles.formActionsContainer}>
                 <button 
                   onClick={handleSave}
                   disabled={isUpdating}
-                  className={styles.saveButton}
+                  className={styles.formSaveButton}
                 >
                   {isUpdating ? 'Сохранение...' : 'Сохранить'}
                 </button>
@@ -201,7 +194,7 @@ export const BlogPage = () => {
                 <button 
                   onClick={handleCancelEdit}
                   disabled={isUpdating}
-                  className={styles.cancelButton}
+                  className={styles.formCancelButton}
                 >
                   Отмена
                 </button>
@@ -209,11 +202,11 @@ export const BlogPage = () => {
             </div>
           ) : (
             <>
-              <h3 className={styles.h2Post}>{post.title}</h3>
-              <hr />
+              <h3 className={styles.postTitle}>{post.title}</h3>
+              <hr className={styles.pageSeparator} />
               
-              <div className={styles.content}>
-                <div className={styles.textcontent}>
+              <div className={styles.postContent}>
+                <div className={styles.textContent}>
                   <p>{post.body}</p>
                   <div className={styles.postMeta}>
                   </div>

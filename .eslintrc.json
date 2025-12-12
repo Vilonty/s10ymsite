@@ -21,10 +21,23 @@
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
+    "react/no-unescaped-entities": "off",
+    
+    // Правила именования для лабораторной работы
+    "camelcase": ["error", { "properties": "always" }],
     "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
-    "no-console": "off",
-    "no-empty": "warn",
-    "react/no-unescaped-entities": "off"
+    
+    // Форматирование
+    "indent": ["error", 2],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "comma-dangle": ["error", "always-multiline"],
+    "jsx-quotes": ["error", "prefer-single"],
+    
+    // Именование
+    "react/jsx-pascal-case": ["error", { "allowAllCaps": true }],
+    "no-console": "warn",
+    "no-empty": "warn"
   },
   "settings": {
     "react": {

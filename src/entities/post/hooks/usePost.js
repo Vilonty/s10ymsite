@@ -10,7 +10,7 @@ export const usePost = (postId) => {
     loading, 
     error, 
     isUpdating, 
-    isDeleting 
+    isDeleting, 
   } = useSelector(state => state.posts);
 
   useEffect(() => {
@@ -41,6 +41,6 @@ export const usePost = (postId) => {
     // Действия
     updatePost,
     deletePost,
-    clearError: clearPostError
+    clearError: clearPostError,
   };
 };

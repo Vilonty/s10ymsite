@@ -1,15 +1,16 @@
 import React, { useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../app/providers/AuthContext';
 import { useQueryClient } from '@tanstack/react-query';
 import { getPosts } from '../../entities/post/api/BlogApi';
 import HLogo from '../../shared/assets/HeaderLogo/S10YM.png';
+import { useLinkLocation } from './useLinkLocation';
 import '../../shared/style/header/header.css';
 
-export const Header = ({ showAuthLinks = true, account = true,profil = true, register = true, blog = true, about=true }) => {
-
+export const Header = () => {
   const queryClient = useQueryClient();
-  const { isAuthenticated, logout } = useContext(AuthContext); 
+  const { isAuthenticated, logout } = useContext(AuthContext);
+  const { hiddenLinks } = useLinkLocation();
 
   const handleBlogHover = () => {
     queryClient.prefetchQuery({
@@ -19,36 +20,34 @@ export const Header = ({ showAuthLinks = true, account = true,profil = true, reg
     });
   };
 
-  const location = useLocation();
-  console.log('location', location);
   return (
-    <div className="header">
-      <Link to="/">
-        <img src={HLogo} alt="Логотип" />
+    <div className='header'>
+      <Link to='/'>
+        <img src={HLogo} alt='Логотип' />
       </Link>
             
       <nav>
-        {about && <Link to="/About">О сервере</Link>}
-        {blog && (
+        {!hiddenLinks.about && <Link to='/About'>О сервере</Link>}
+        {!hiddenLinks.blog && (
           <Link 
-            to="/Blog" 
-            onMouseEnter={handleBlogHover} // ← ПРАВИЛЬНО!
+            to='/Blog' 
+            onMouseEnter={handleBlogHover}
           >
-                        Блог
+            Блог
           </Link>
         )}
                 
-        {!isAuthenticated && showAuthLinks && (
+        {!isAuthenticated && (
           <>
-            {register && <Link to="/Register">Регистрация</Link>}
-            {account && <Link to="/Authorization">Авторизация</Link>}
+            {!hiddenLinks.register && <Link to='/Register'>Регистрация</Link>}
+            {!hiddenLinks.authorization && <Link to='/Authorization'>Авторизация</Link>}
           </>
         )}
 
         {isAuthenticated && (
           <>
-            {profil && <Link to="/Profil">Личный кабинет</Link>} 
-            <button onClick={logout}>Выйти</button> 
+            {!hiddenLinks.profil && <Link to='/Profil'>Личный кабинет</Link>}
+            <button className='logout-button' onClick={logout}>выйти</button>
           </>
         )}
       </nav>

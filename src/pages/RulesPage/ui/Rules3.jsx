@@ -1,18 +1,13 @@
 import styles from '../../../shared/style/rules/main/rules.module.css';
 
-export const Rules3 =() => {
-  return(
-
-    <div className={`${styles.rulesCommon} ${styles.rulesDark}`}>
-
+export const Rules3 = () => {
+  return (
+    <div className={`${styles.ruleSection} ${styles.ruleSectionDark}`}>
       <span>Пункт 3: Намеренное причинение вреда в работе сервера</span>
       <ul>
-        <li>Pапрещены постройки любых лаг машин/бан чанков/любых других вещей ломающие сервер  </li>
+        <li>Запрещены постройки любых лаг машин/бан чанков/любых других вещей ломающие сервер</li>
         <li>Запрещены механизмы которые полностью положат сервер</li>
       </ul>
-            
     </div>
   );
-    
-
 };

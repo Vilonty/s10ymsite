@@ -1,9 +1,8 @@
 import styles from '../../../shared/style/rules/main/rules.module.css';
 
-export const Rules6 =() => {
-  return(
-
-    <div className={`${styles.rulesCommon} ${styles.rulesLight}`}>
+export const Rules6 = () => {
+  return (
+    <div className={`${styles.ruleSection} ${styles.ruleSectionLight}`}>
       <span>Пункт 6: фермы и механизмы</span>
       <span>Разрешены любые фермы и механизмы, за исключением:</span>
       <ul>
@@ -12,6 +11,4 @@ export const Rules6 =() => {
       </ul>
     </div>
   );
-    
-
 };

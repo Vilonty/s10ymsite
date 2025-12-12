@@ -1,91 +1,107 @@
-body {
-    background-color: #252525;
-}
-a {
-    text-decoration: none; 
-    color: white; 
-}
-.press-start-2p-regular {
-    font-family: "Press Start 2P", system-ui;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.mainrules {
+.rulesPage {
     display: flex;
+    align-items: center;
     justify-content: center;
-    height: 2530px;
+    min-height: 100vh;
     background-image: url('../../../assets/request/backgrounds/bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    padding: 20px;
 }
 
-.mainblock {
+.rulesContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+    justify-content: center;
     margin-top: 5%;
     background-color: #2D2D2D;
-    width: 50%;
-
-    
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+    padding: 40px;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
-h2 {
+
+.rulesTitle {
+    margin: 0 0 40px 0;
     color: white;
     font-family: "Press Start 2P", system-ui;
     font-size: 35px;
     text-transform: uppercase;
-    margin-top:6%;
-}
-span{
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 2%;
-}
-ul{
-    margin-left: 8%;
-    margin-top: 4%;
+    text-align: center;
 }
 
-.rulesCommon{
+.rulesContent {
     display: flex;
     flex-direction: column;
-    box-shadow: 4px 4px 4px rgba(0,0,0,0.25);
-    box-shadow: inset 2px 2px rgba(0,0,0,0.2);
-
     width: 100%;
-    background-color: #313131;
-    
-    padding-top: 30px;
-    padding-bottom: 30px;
+    align-items: center;
+}
 
+.ruleSection {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    padding: 25px;
+    margin-bottom: 15px;
     text-transform: uppercase;
-    color:white;
+    color: white;
     font-family: 'JetBrains Mono';
-    font-size: 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    text-align: center;
 }
 
-.rulesDark { background-color: #313131; }
-.rulesLight { background-color: #404040; }
+.ruleSectionDark { 
+    background-color: #313131; 
+}
 
-.buttomRules{
+.ruleSectionLight { 
+    background-color: #404040; 
+}
+
+.ruleSection span {
+    margin: 8px 0;
+    display: block;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.ruleSection ul {
+    margin: 15px auto 0 auto;
+    padding: 0;
+    text-align: left;
+    max-width: 90%;
+    list-style-position: inside;
+}
+
+.ruleSection li {
+    margin: 8px 0;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.rulesFooter {
     display: flex;
     flex-direction: column;
-    box-shadow: 4px 4px 4px rgba(0,0,0,0.25);
-    box-shadow: inset 2px 2px rgba(0,0,0,0.2);
-
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     width: 100%;
     background-color: #313131;
-    
-    padding-top: 30px;
-    padding-bottom: 30px;
-
+    padding: 25px;
     text-transform: uppercase;
     text-align: center;
-    color:white;
+    color: white;
     font-family: 'JetBrains Mono';
-    font-size: 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.rulesFooter span {
+    margin: 10px 0;
+    display: block;
+    line-height: 1.5;
 }

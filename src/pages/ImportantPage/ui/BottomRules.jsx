@@ -1,14 +1,10 @@
-import styles from '../../../shared/style/important/important.module.css';
+import styles from '../../../shared/style/rules/main/rules.module.css';
 
 export const ImportantButton =() => {
   return(
-
-    <div className={`${styles.buttomRules} ${styles.rulesDark}`}>
+    <div className={styles.rulesFooter}>
       <span>Все пункты кроме 3, 4 и 5 могут быть решены мирно (без банов)</span>
       <span>В СЛУЧАЕ КАКИХ-ЛИБО ПРОБЛЕМ, ВЫ МОЖЕТЕ СВЯЗАТЬСЯ С АДМИНИСТРАЦИЕЙ В НАШЕМ ДИСКОРД СЕРВЕРЕ</span>
-            
     </div>
   );
-    
-
 };

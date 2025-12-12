@@ -1,123 +1,80 @@
-body{
-    background-color: #252525;
-}
-a {
-    text-decoration: none; 
-    color: white; 
-}
-.press-start-2p-regular {
-    font-family: "Press Start 2P", system-ui;
-    font-weight: 400;
-    font-style: normal;
-}
-
-
-.mainrequest{
+.requestPage {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-
-    height: 900px;
+    min-height: 100vh;
     background-image: url('../../../assets/request/backgrounds/bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
+    padding: 20px;
 }
 
-
-
-.mainblock{
+.requestContainer {
     display: flex;
     flex-direction: column;
-    
     align-items: center;
-
-    
-
-    margin-top:2%;
-
+    justify-content: center;
     background-color: #2D2D2D;
-
-    height: 700px;
-    width: 50%;
-    
-}
-
-h2{
-    margin-top: 2%;
-    margin-left: 20%;
-    color: white;
-    font-size: 90%;
-    word-spacing:1%;
-    line-height: 1.2; 
-}
-
-h3 {
-    margin-left: 0;
-    color: white;
-    font-size: 25px;
-    word-spacing:1%;
-    line-height: 1.2; 
-}
-.textInput{
+    padding: 40px;
     width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
-.inputArea{
-    width: 100%;
+
+.requestTitle {
+    margin: 0 0 30px 0;
+    color: white;
+    font-size: 30px;
+    word-spacing: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
 }
-.form{
+
+.requestForm {
     display: flex;
     flex-direction: column;
     align-items: center;
-
     color: white;
     font-size: 20px;
     font-family: 'JetBrains Mono';
     font-weight: 200;
-
     width: 100%;
-    height: 100%;
 }
 
-.title{
+.formLabel {
     font-weight: 700;
-    margin-top: 2%;
-    margin-left: 1%;
-    width: 50%;
-
+    margin-top: 15px;
+    width: 100%;
+    text-align: left;
 }
 
-
-.nickinput{
+.nicknameContainer {
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    width: 50%;
-    
+    width: 100%;
+    margin-bottom: 15px;
 }
 
-
-
-.nickinput button{
-
+.nicknameContainer button {
     color: white;
     background-color: transparent;
     font-size: 15px;
     font-family: 'JetBrains Mono';
     border: none;
-    margin-top: 10px;
-    
+    margin-top: 8px;
+    margin-left: 10px;
+    cursor: pointer;
 }
 
-
-.nickinput input{
+.nicknameContainer input {
     width: 100%;
-    height: 90%;
+    height: 50px;
     box-shadow: inset 0px 3px 4px rgb(66, 66, 66);
-    margin-top: 2%;
+    margin-top: 8px;
     background-color: #D9D9D9;
     font-family: 'JetBrains Mono', monospace;
     text-align: left;
@@ -125,23 +82,23 @@ h3 {
     outline: none;
     box-sizing: border-box;
     padding: 10px;
-    border-radius:10px;    
+    border-radius: 10px;
+    font-size: 16px;
 }
 
-.expiriens{
+.experienceContainer {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    
-    width: 50%;
-
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 15px;
 }
 
-.expiriens textarea{
+.experienceContainer textarea {
     width: 100%;
     height: 150px;
     box-shadow: inset 0px 3px 4px rgb(66, 66, 66);
-    margin-top: 1%;
+    margin-top: 8px;
     background-color: #D9D9D9;
     font-family: 'JetBrains Mono', monospace;
     text-align: left;
@@ -149,75 +106,79 @@ h3 {
     outline: none;
     box-sizing: border-box;
     padding: 10px;
-    border-radius:10px;
-
-    white-space: pre-wrap;
-    overflow-y: auto;
-
+    border-radius: 10px;
+    font-size: 16px;
+    resize: vertical;
 }
 
-.expiriens button{
-
+.experienceContainer button {
     color: white;
     background-color: transparent;
-    
     font-size: 15px;
     font-family: 'JetBrains Mono';
     border: none;
-    margin-top: 10px;
-    
+    margin-top: 8px;
+    margin-left: 10px;
+    cursor: pointer;
 }
 
-
-.customCheckbox{
+.checkboxInput {
     width: 20px;
     height: 20px;
+    margin-left: 10px;
 }
 
+.formNote {
+    margin-top: 15px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+}
 
-.downButton{
+.formNote a {
+    color: #6ea8fe;
+    text-decoration: underline;
+}
+
+.submitButton {
     background-color: #D9D9D9;
-    height: 76px;
-    width: 30%;
-
+    height: 70px;
+    width: 100%;
     color: #2D2D2D;
     text-transform: uppercase;
-
     font-family: 'JetBrains Mono';
     font-size: 20px;
     font-weight: 1000;
-
     border: none;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
-    
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s ease, background-color 0.3s ease;
-    margin-top: 1%;
+    margin-top: 25px;
+    cursor: pointer;
+    border-radius: 10px;
 }
 
-.downButton:hover{
+.submitButton:hover:not(:disabled) {
     transform: translateY(-5px);
 }
 
-.downButton:active{
+.submitButton:active:not(:disabled) {
     background-color: #424242;
 }
-.downButton:disabled {
+
+.submitButton:disabled {
     background-color: #cccccc;
     color: #666666;
     cursor: not-allowed;
-  }
-
-.downButton:disabled:hover {
-    transform: none;
-  } 
-
-
-.downSpan{
-    margin-top: 4px;
-    font-size: 15px;
-    font-weight: 700;
 }
 
-span{
-    margin-top: 1%;
+.submitButton:disabled:hover {
+    transform: none;
+}
+
+.buttonNote {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #aaa;
+    text-align: center;
+    width: 100%;
 }

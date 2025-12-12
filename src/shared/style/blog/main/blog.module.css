@@ -1,48 +1,96 @@
-body {
-    background-color: #252525;
-}
-a {
-    text-decoration: none; 
-    color: white; 
-}
-.press-start-2p-regular {
-    font-family: "Press Start 2P", system-ui;
-    font-weight: 400;
-    font-style: normal;
-}
-
-h2{
-    margin-top: 15%;
-    color: white;
-    font-size: 20px;
-    word-spacing: 10px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.mainBlog {
+.blogPage {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 900px;
+    min-height: 100vh;
     background-image: url('../../../assets/request/backgrounds/bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    padding: 20px;
 }
 
-.mainblock {
+.blogContainer {
+    display: flex;
+    margin-top: 5%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #2D2D2D;
+    padding: 40px;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.blogTitle {
+    margin: 0 0 30px 0;
+    color: white;
+    font-size: 35px;
+    word-spacing: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    font-family: "Press Start 2P", system-ui;
+}
+
+.adminControls {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.addButton {
+    background-color: #404040;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono';
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.addButton:hover:not(:disabled) {
+    background-color: #505050;
+}
+
+.addButton:disabled {
+    background-color: #2D2D2D;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.contentBlocks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    gap: 15px;
+}
+
+.contentBlock {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    margin-top: 2%;
-    background-color: #2D2D2D;
-    height: 700px;
-    width: 50%;
+    justify-content: space-between;
+    min-height: 100px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    width: calc(33.333% - 20px);
+    background-color: #3E3E3E;
+    color: white;
+    transition: transform 0.3s ease;
+    padding: 20px;
+    box-sizing: border-box;
+}
 
-    
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+.contentBlock:hover {
+    transform: translateY(-10px);
 }
 
 .blogLink {
@@ -53,46 +101,165 @@ h2{
     justify-content: center;
     text-decoration: none;
     color: inherit;
+    text-align: center;
 }
 
-.contentBlocks {
+.postActions {
     display: flex;
-    flex-wrap: wrap;
-    
-    justify-content: center; 
+    justify-content: flex-end;
     width: 100%;
-    padding: 20px; 
-    gap: 15px; 
+    margin-top: 10px;
 }
 
-.contentBlock {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 160px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    width: calc(29% - 20px); /* Исправлено */
-    background-color: #3E3E3E;
-    color: white;
-    transition: transform 0.3s ease;
-    margin-bottom: 20px; /* Добавлено */
-}
-
-
-.contentBlock:hover {
-    transform: translateY(-10px); 
-}
-span{
-    color: white;
-    margin-top: 4%;
-    font-family: 'JetBrains Mono';
-}
-button{
+.deleteButton {
     background: transparent;
-    border:none;
-    font-family: 'JetBrains Mono';
-    color: white;
-
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #ff6b6b;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
+.deleteButton:hover:not(:disabled) {
+    background-color: rgba(255, 107, 107, 0.1);
+}
+
+.deleteButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination {
+    margin-top: 20px;
+    color: white;
+    font-family: 'JetBrains Mono';
+    text-align: center;
+}
+
+.pagination button {
+    background-color: #404040;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'JetBrains Mono';
+}
+
+.pagination button:hover {
+    background-color: #505050;
+}
+
+.addPostForm {
+    background: #404040;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border: 1px solid #505050;
+    width: 100%;
+}
+
+.addPostFormTitle {
+    margin-top: 0;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'JetBrains Mono';
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: white;
+    font-family: 'JetBrains Mono';
+}
+
+.formGroup input,
+.formGroup textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #2D2D2D;
+    color: white;
+    border: 1px solid #505050;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: 'JetBrains Mono';
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.formGroup input:disabled,
+.formGroup textarea:disabled {
+    background-color: #2D2D2D;
+    opacity: 0.7;
+}
+
+.formActions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.submitButton {
+    padding: 12px 25px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'JetBrains Mono';
+    transition: background 0.2s;
+}
+
+.submitButton:hover:not(:disabled) {
+    background: #218838;
+}
+
+.submitButton:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+}
+
+.cancelButton {
+    padding: 12px 25px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'JetBrains Mono';
+    transition: background 0.2s;
+}
+
+.cancelButton:hover:not(:disabled) {
+    background: #5a6268;
+}
+
+.error {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+    font-family: 'JetBrains Mono';
+}

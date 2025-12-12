@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import { Loading } from '../../features/blog/ui/Loading/Loading';
 import { Error } from '../../features/blog/ui/QueryError/QueryError';
 import { AddPostForm } from '../../features/blog/ui/AddPostForm/AddPostForm';
@@ -15,13 +14,12 @@ export const Blog = () => {
     addPost, 
     removePost, 
     isCreating, 
-    isDeleting 
+    isDeleting, 
   } = usePosts(); 
   
   const [showAddForm, setShowAddForm] = useState(false);
   const [deletingId, setDeletingId] = useState(null); 
 
-  // Обработчик добавления поста
   const handlePostAdded = async (newPost) => {
     try {
       await addPost(newPost); 
@@ -32,7 +30,6 @@ export const Blog = () => {
     }
   };
 
-  // Обработчик удаления поста
   const handleDeletePost = async (id) => {
     if (!window.confirm('Вы уверены, что хотите удалить этот пост?')) {
       return;
@@ -68,10 +65,10 @@ export const Blog = () => {
 
   return (
     <React.Fragment>
-      <main className={styles.mainBlog}>
-        <div className={styles.mainblock}>
+      <main className={styles.blogPage}>
+        <div className={styles.blogContainer}>
+          <h2 className={styles.blogTitle}>блог</h2>
           
-          {/* Кнопка добавления поста */}
           <div className={styles.adminControls}>
             <button 
               onClick={() => setShowAddForm(!showAddForm)}
@@ -83,7 +80,6 @@ export const Blog = () => {
             </button>
           </div>
 
-          {/* Форма добавления поста */}
           {showAddForm && (
             <AddPostForm
               onPostAdded={handlePostAdded}
@@ -96,16 +92,15 @@ export const Blog = () => {
             {posts.map((post) => (
               <div key={post.id} className={styles.contentBlock}>
                 <Link to={`/blogpage/${post.id}`} className={styles.blogLink}>
-                  <h2>{post.title}</h2>
+                  <h2 className={styles.addPostFormTitle}>{post.title}</h2>
                 </Link>
                 
-                {/* Кнопка удаления */}
                 <div className={styles.postActions}>
                   <button
                     onClick={() => handleDeletePost(post.id)}
                     disabled={deletingId === post.id || isDeleting} 
                     className={styles.deleteButton}
-                    title="Удалить пост"
+                    title='Удалить пост'
                   >
                     {deletingId === post.id ? '⏳' : '🗑️'}
                   </button>
@@ -114,7 +109,6 @@ export const Blog = () => {
             ))}
           </div>
           
-          {/* Пагинация - можно добавить позже */}
           <div className={styles.pagination}>
             <span><button>1</button> .. <button>n</button></span>
           </div>

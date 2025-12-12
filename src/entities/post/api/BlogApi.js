@@ -24,7 +24,7 @@ export const getPosts = async (page = 1, limit = 9) => {
     const response = await api.get(`${API_URL}?_page=${page}&_limit=${limit}`);
     return {
       posts: response.data,
-      totalCount: 100 
+      totalCount: 100, 
     };
   } catch (error) {
     handleError(error);
@@ -46,7 +46,7 @@ export const createPost = async (postData) => {
   try {
     const response = await api.post(API_URL, {
       ...postData,
-      userId: 1
+      userId: 1,
     });
     return response.data;
   } catch (error) {
@@ -59,7 +59,7 @@ export const updatePost = async (id, postData) => {
   try {
     const response = await api.put(`${API_URL}/${id}`, {
       ...postData,
-      id: id
+      id: id,
     });
     return response.data;
   } catch (error) {

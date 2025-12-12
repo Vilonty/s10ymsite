@@ -5,7 +5,7 @@ export const Loading = () => {
     <div style={{ 
       textAlign: 'center', 
       padding: '100px', 
-      fontSize: '20px' 
+      fontSize: '20px', 
     }}>
       Загрузка постов...
     </div>

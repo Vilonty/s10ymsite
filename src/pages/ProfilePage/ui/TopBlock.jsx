@@ -21,7 +21,7 @@ export const TopBLock = () => {
     <div className={styles.mainblocktop}>
       <img 
         src={`https://i.pravatar.cc/150?img=${profile.id || 1}`} 
-        alt="Аватарка" 
+        alt='Аватарка' 
       />
       <div className={styles.mainblocktopinfo}>
         <span>{profile.username || 'username'}</span>

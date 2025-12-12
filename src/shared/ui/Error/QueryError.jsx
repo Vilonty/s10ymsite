@@ -2,7 +2,7 @@ import React from 'react';
 
 export const QueryError = ({ error, onRetry }) => {
   return (
-    <div className="query-error">
+    <div className='query-error'>
       <h3>Ошибка загрузки</h3>
       <p>{error.message || 'Не удалось загрузить данные'}</p>
       

@@ -5,7 +5,7 @@ export const Checkbox = ({
   register,
   name,
   validation = {},
-  className = ''
+  className = '',
 }) => {
   return (
     <>

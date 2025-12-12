@@ -1,33 +1,43 @@
-.header{
+.header {
     position: absolute;
     display: flex;
     align-items: center;
     height: 89px;
     width: 100%;
 }
-.header img{
+
+.header img {
     margin-left: 20vw;
     height: 42px;
     width: 153.11px;
 }
 
-.header nav{
+.header nav {
     display: flex;
     margin-left: auto;
     margin-right: 20%;
     gap: 20px;
+    align-items: center;
 }
-.header nav a{
+
+.header nav a,
+.header nav .logout-button {
     text-decoration: none;
     font-family: 'JetBrains Mono', monospace;
     color: white;
-    size: 15px;
+    font-size: 18px; 
     text-transform: lowercase;
     font-weight: bold;
     letter-spacing: 1.8px;
-    transition: background-color 0.3s; 
+    transition: color 0.3s;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
 }
-.header nav a:hover {
-    color: lightgray; 
-    
+
+.header nav a:hover,
+.header nav .logout-button:hover {
+    color: lightgray;
 }

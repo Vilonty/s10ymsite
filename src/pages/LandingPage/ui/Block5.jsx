@@ -5,7 +5,7 @@ export const Block5 =() => {
 
     <div className={styles.block5}>
       <div className={styles.block5top}>
-        <Link to="/Rules">
+        <Link to='/Rules'>
           <div className={styles.block5_content_block}>
             <h2>правила</h2>
             <span>сервер имеет ряд правил с которыми необходимо ознакомиться</span>
@@ -14,7 +14,7 @@ export const Block5 =() => {
     
 
 
-        <Link to="/Important">
+        <Link to='/Important'>
           <div className={styles.block5_content_block}>
             <h2>важное</h2>
             <span>сервер имеет ряд важной информации</span>
@@ -22,7 +22,7 @@ export const Block5 =() => {
         </Link>
         
 
-        <Link to="/Blog">
+        <Link to='/Blog'>
           <div className={styles.block5_content_block}>
             <h2>блог</h2>
             <span>сервер имеет блог</span>

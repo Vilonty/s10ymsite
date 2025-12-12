@@ -12,7 +12,7 @@ export const Block4 =() => {
         <div className={styles.block4button}>
           <div className={styles.block4buttoncontent}>
             <span>Для участия в проекте сначала нужно ознакомиться с правилами, а затем подать заявку в личном кабинете</span>
-            <button><Link to="/Profil">личный кабинет</Link></button>
+            <button><Link to='/Profil'>личный кабинет</Link></button>
           </div>
                         
         </div>

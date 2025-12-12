@@ -10,7 +10,7 @@ export const fetchPost = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const updatePostThunk = createAsyncThunk(
@@ -22,7 +22,7 @@ export const updatePostThunk = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const deletePostThunk = createAsyncThunk(
@@ -34,7 +34,7 @@ export const deletePostThunk = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const fetchPosts = createAsyncThunk(
@@ -46,7 +46,7 @@ export const fetchPosts = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const createPostThunk = createAsyncThunk(
@@ -58,7 +58,7 @@ export const createPostThunk = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(error.message);
     }
-  } 
+  }, 
 );
 
 const postsSlice = createSlice({
@@ -74,7 +74,7 @@ const postsSlice = createSlice({
     isCreating: false,      
     currentPage: 1,          
     totalPages: 1,        
-    limit: 9                 
+    limit: 9,                 
   },
   reducers: {
     clearError: (state) => {
@@ -88,7 +88,7 @@ const postsSlice = createSlice({
     },
     clearPostsList: (state) => {
       state.postsList = [];
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -160,7 +160,7 @@ const postsSlice = createSlice({
         state.isCreating = false;
         state.error = action.payload;
       });
-  }
+  },
 });
 
 export const { clearError, clearCurrentPost, setCurrentPage, clearPostsList } = postsSlice.actions;
